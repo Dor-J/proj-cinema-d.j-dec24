@@ -135,6 +135,10 @@ table {
   background-color: var(--cinema-screen-bg);
   box-shadow: var(--screen-shadow);
   text-align: center;
+  transition: scale 1s ease-in-out;
+}
+.cinema-screen:hover {
+  scale: 1.1;
 }
 
 .cinema-screen h2 {
