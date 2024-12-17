@@ -21,7 +21,18 @@
       <button class="btn-close" onclick="hideSeatDetails()">x</button>
       <h2>Seat: <span>X-X</span></h2>
       <h3>Price: $<span>X</span></h3>
-      <h4>Available seats: <span>0</span></h4>
+      <h4>
+        Available seats: <span class="seats-count">0</span
+        ><span
+          class="highlight-seats-btn"
+          onclick="highlightAvailableSeatsAround(this)"
+          data-i=""
+          data-j=""
+        >
+          <!-- <img src="img/light-bulb.svg" alt="Highlight available seats"/> -->
+          🔦
+        </span>
+      </h4>
       <button
         class="btn-book-seat"
         data-i=""

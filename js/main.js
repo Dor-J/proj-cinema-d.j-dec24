@@ -49,6 +49,7 @@ function renderCinema() {
       const title = `Seat: ${i + 1}, ${j + 1}`
 
       strHTML += `\t<td title="${title}" class="cell ${className}" 
+                            data-i="${i}" data-j="${j}"
                             onclick="onCellClicked(this, ${i}, ${j})" >
                          </td>\n`
     }
@@ -87,19 +88,19 @@ function onCellClicked(elCell, i, j) {
 function showSeatDetails(pos) {
   const elPopup = document.querySelector('.popup')
   const elBtn = elPopup.querySelector('.btn-book-seat')
+  const elHighlightBtn = elPopup.querySelector('.highlight-seats-btn')
 
   const seat = gCinema[pos.i][pos.j]
 
   elPopup.querySelector('h2 span').innerText = `${pos.i + 1}-${pos.j + 1}`
   elPopup.querySelector('h3 span').innerText = `${seat.price}`
-  elPopup.querySelector('h4 span').innerText = countAvailableSeatsAround(
-    gCinema,
-    pos.i,
-    pos.j
-  )
+  elPopup.querySelector('h4 span.seats-count').innerText =
+    countAvailableSeatsAround(gCinema, pos.i, pos.j)
 
   elBtn.dataset.i = pos.i
   elBtn.dataset.j = pos.j
+  elHighlightBtn.dataset.i = pos.i
+  elHighlightBtn.dataset.j = pos.j
   elPopup.hidden = false
 }
 
@@ -131,4 +132,32 @@ function countAvailableSeatsAround(board, rowIdx, colIdx) {
     }
   }
   return count
+}
+
+function highlightAvailableSeatsAround(elHighlightBtn) {
+  console.log('highlightAvailableSeatsAround', elHighlightBtn)
+
+  const rowIdx = +elHighlightBtn.dataset.i
+  const colIdx = +elHighlightBtn.dataset.j
+  for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
+    if (i < 0 || i >= gCinema.length) continue
+    for (var j = colIdx - 1; j <= colIdx + 1; j++) {
+      if (i === rowIdx && j === colIdx) continue
+      if (j < 0 || j >= gCinema[0].length) continue
+      var currCell = gCinema[i][j]
+      var currRenderCell = document.querySelector(
+        `[data-i="${i}"][data-j="${j}"]`
+      )
+      if (currCell.isSeat && !currCell.isBooked) {
+        addHighlight(currRenderCell)
+        setTimeout(removeHighlight, 2500, currRenderCell)
+      }
+    }
+  }
+}
+function removeHighlight(cell) {
+  cell.classList.remove('highlight')
+}
+function addHighlight(cell) {
+  cell.classList.add('highlight')
 }

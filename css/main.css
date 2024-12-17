@@ -57,6 +57,8 @@ table {
 
   background-color: orange;
   padding: 1.4rem;
+
+  border-radius: 2rem;
 }
 
 .popup .btn-close {
@@ -67,6 +69,34 @@ table {
   background-color: transparent;
   border: 1px solid white;
   color: white;
+}
+.popup .btn-book-seat {
+  border-radius: 2rem;
+  width: 100%;
+}
+
+.popup h4 {
+  margin-inline: auto;
+}
+
+/* .popup h4 span.highlight-seats-btn img {
+  max-width: 2rem;
+  max-height: 2rem;
+  border: 1px solid white;
+  margin-inline-start: 0.5rem;
+  padding: 1px;
+  border-radius: 20px;
+  background-color: yellow;
+  cursor: pointer;
+} */
+.popup h4 span.highlight-seats-btn {
+  max-width: 3rem;
+  max-height: 3rem;
+  border: none;
+  margin-inline-start: 0.5rem;
+  border-radius: 20px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .cinema-screen {
@@ -86,4 +116,9 @@ table {
   color: #333;
   font-weight: 700;
   letter-spacing: 0.2rem;
+}
+
+.highlight {
+  background-color: aliceblue;
+  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
 }
