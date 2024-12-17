@@ -3,10 +3,35 @@
   box-sizing: border-box;
 }
 
+:root {
+  /* colors */
+  --background-clr: #111;
+  --txt-clr: white;
+  --seat-clr: #761818;
+  --seat-hover-clr: #5d1313;
+  --selected-clr: orange;
+  --booked-clr: red;
+  --booked-hover-clr: gray;
+  --popup-bg-clr: orange;
+  --highlight-clr: aliceblue;
+  --cinema-screen-bg: #fff;
+  --cinema-screen-txt-clr: #333;
+
+  /* shadows */
+  --highlight-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+  --screen-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.7);
+
+  /* Dimensions */
+  --cinema-width: 600px;
+  --cell-width: 35px;
+  --cell-height: 50px;
+  --border-radius: 7px;
+  --popup-radius: 2rem;
+}
 body {
-  background: #111;
+  background: var(--background-clr);
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: var(--txt-clr);
 }
 
 h1 {
@@ -14,7 +39,7 @@ h1 {
 }
 
 .cinema {
-  width: 600px;
+  width: var(--cinema-width);
   margin: 60px auto;
 }
 
@@ -24,29 +49,30 @@ table {
 }
 
 .cell {
-  width: 35px;
-  height: 50px;
-  border-radius: 7px;
+  width: var(--cell-width);
+  height: var(--cell-height);
+  border-radius: var(--border-radius);
+  transition: background-color 0.6s ease-in-out, box-shadow 0.8s ease-in-out;
 }
 .seat {
-  background-color: #761818;
+  background-color: var(--seat-clr);
   cursor: pointer;
 }
 .seat:hover {
   scale: 0.95;
-  background-color: #5d1313;
+  background-color: var(--seat-hover-clr);
 }
 
 .selected {
-  background-color: orange;
+  background-color: var(--selected-clr);
 }
 
 .booked {
-  background-color: red;
+  background-color: var(--booked-clr);
 }
 
 .seat.booked:hover {
-  background-color: gray;
+  background-color: var(--booked-hover-clr);
   cursor: not-allowed;
 }
 
@@ -55,10 +81,10 @@ table {
   right: 20px;
   top: 20px;
 
-  background-color: orange;
+  background-color: var(--popup-bg-clr);
   padding: 1.4rem;
 
-  border-radius: 2rem;
+  border-radius: var(--popup-radius);
 }
 
 .popup .btn-close {
@@ -67,11 +93,11 @@ table {
   right: 10px;
 
   background-color: transparent;
-  border: 1px solid white;
-  color: white;
+  border: 1px solid var(--txt-clr);
+  color: var(--txt-clr);
 }
 .popup .btn-book-seat {
-  border-radius: 2rem;
+  border-radius: var(--popup-radius);
   width: 100%;
 }
 
@@ -103,8 +129,8 @@ table {
   width: max(250px, 40%);
   max-height: 400px;
   margin: 3rem auto;
-  background-color: #fff;
-  box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.7);
+  background-color: var(--cinema-screen-bg);
+  box-shadow: var(--screen-shadow);
   text-align: center;
 }
 
@@ -113,12 +139,12 @@ table {
   margin: 3rem auto;
   line-height: max(150px, 20%);
   font-size: 3rem;
-  color: #333;
+  color: var(--cinema-screen-txt-clr);
   font-weight: 700;
   letter-spacing: 0.2rem;
 }
 
 .highlight {
-  background-color: aliceblue;
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.7);
+  background-color: var(--highlight-clr);
+  box-shadow: var(--highlight-shadow);
 }
