@@ -68,3 +68,22 @@ table {
   border: 1px solid white;
   color: white;
 }
+
+.cinema-screen {
+  width: max(250px, 40%);
+  max-height: 400px;
+  margin: 3rem auto;
+  background-color: #fff;
+  box-shadow: 0 0 50px 20px rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.cinema-screen h2 {
+  height: max(100px, 20%);
+  margin: 3rem auto;
+  line-height: max(150px, 20%);
+  font-size: 3rem;
+  color: #333;
+  font-weight: 700;
+  letter-spacing: 0.2rem;
+}
