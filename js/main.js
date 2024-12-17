@@ -66,8 +66,6 @@ function onCellClicked(elCell, i, j) {
   // ignore none seats and booked seats
   if (!cell.isSeat || cell.isBooked) return
 
-  console.log('Cell clicked: ', elCell, i, j)
-
   // Selecting a seat
   elCell.classList.add('selected')
 
@@ -109,12 +107,11 @@ function hideSeatDetails() {
 }
 
 function onBookSeat(elBtn) {
-  console.log('Booking seat, button: ', elBtn)
   const i = +elBtn.dataset.i
   const j = +elBtn.dataset.j
 
   gCinema[i][j].isBooked = true
-  renderCinema() // TODO: make render cell seat not the whole cinema
+  renderCinema()
 
   hideSeatDetails()
 }
@@ -135,8 +132,6 @@ function countAvailableSeatsAround(board, rowIdx, colIdx) {
 }
 
 function highlightAvailableSeatsAround(elHighlightBtn) {
-  console.log('highlightAvailableSeatsAround', elHighlightBtn)
-
   const rowIdx = +elHighlightBtn.dataset.i
   const colIdx = +elHighlightBtn.dataset.j
   for (var i = rowIdx - 1; i <= rowIdx + 1; i++) {
