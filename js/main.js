@@ -10,11 +10,15 @@ function onInit() {
 
 function createCinema() {
   const cinema = []
+  const grid = { i: 6, j: 10 }
 
-  for (var i = 0; i < 7; i++) {
+  for (var i = 0; i < grid.i; i++) {
     cinema[i] = []
-    for (var j = 0; j < 15; j++) {
-      const cell = { isSeat: j !== 7 }
+    for (var j = 0; j < grid.j; j++) {
+      const cell = { isSeat: true }
+      if (j === 2 || j === grid.j - 3 || i === 3 || i === grid.i - 3)
+        cell.isSeat = false
+
       if (cell.isSeat) {
         cell.price = 5 + i
         cell.isBooked = false
