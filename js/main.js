@@ -150,9 +150,11 @@ function highlightAvailableSeatsAround(elHighlightBtn) {
     }
   }
 }
+
 function removeHighlight(cell) {
   cell.classList.remove('highlight')
 }
+
 function addHighlight(cell) {
   cell.classList.add('highlight')
 }

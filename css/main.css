@@ -29,6 +29,7 @@
   --border-radius: 7px;
   --popup-radius: 2rem;
 }
+
 body {
   background: var(--background-clr);
   font-family: Arial, Helvetica, sans-serif;
@@ -58,10 +59,12 @@ table {
   border-radius: var(--border-radius);
   transition: background-color 0.6s ease-in-out, box-shadow 0.8s ease-in-out;
 }
+
 .seat {
   background-color: var(--seat-clr);
   cursor: pointer;
 }
+
 .seat:hover {
   scale: 0.95;
   background-color: var(--seat-hover-clr);
@@ -101,6 +104,7 @@ table {
   border: 1px solid var(--txt-clr);
   color: var(--txt-clr);
 }
+
 .popup .btn-book-seat {
   border-radius: var(--popup-radius);
   width: 100%;
@@ -141,6 +145,7 @@ table {
   transition: scale 1s ease-in-out;
   border-radius: var(--border-radius);
 }
+
 .cinema-screen:hover {
   scale: 1.1;
 }
