@@ -24,8 +24,8 @@
 
   /* Dimensions */
   --cinema-width: 600px;
-  --cell-width: 35px;
-  --cell-height: 50px;
+  --cell-width: 2.5rem;
+  --cell-height: 3rem;
   --border-radius: 7px;
   --popup-radius: 2rem;
 }
@@ -38,16 +38,18 @@ body {
 h1 {
   text-align: center;
   text-shadow: var(--heading-txt-shadow);
+  margin-block: 2rem;
 }
 
 .cinema {
-  width: var(--cinema-width);
+  max-width: var(--cinema-width);
   margin: 60px auto;
 }
 
 table {
   border-collapse: separate;
   border-spacing: 10px;
+  overflow-x: auto;
 }
 
 .cell {
@@ -129,13 +131,15 @@ table {
 }
 
 .cinema-screen {
-  width: max(250px, 40%);
+  max-width: max(40%, 250px);
+  min-width: min(60%, 100px);
   max-height: 400px;
-  margin: 3rem auto;
+  margin: 4rem auto;
   background-color: var(--cinema-screen-bg);
   box-shadow: var(--screen-shadow);
   text-align: center;
   transition: scale 1s ease-in-out;
+  border-radius: var(--border-radius);
 }
 .cinema-screen:hover {
   scale: 1.1;
@@ -144,7 +148,7 @@ table {
 .cinema-screen h2 {
   height: max(100px, 20%);
   margin: 3rem auto;
-  line-height: max(150px, 20%);
+  line-height: max(100px, 20%);
   font-size: 3rem;
   color: var(--cinema-screen-txt-clr);
   font-weight: 700;
@@ -154,4 +158,5 @@ table {
 .highlight {
   background-color: var(--highlight-clr);
   box-shadow: var(--highlight-shadow);
+  border: 1px solid var(--highlight-clr);
 }
